@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport for responsiveness -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="admin">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>admin</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Firebase SDK for JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js"></script>
+
+  <script>
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    try {
+      const app = firebase.initializeApp(firebaseConfig);
+      const messaging = firebase.messaging();
+      console.log('Firebase initialized successfully.');
+    } catch (error) {
+      console.error('Firebase initialization failed:', error);
+    }
+  </script>
+
+  <!-- Force HTML renderer for Flutter Web -->
+  <script>
+    window.flutterWebRenderer = "html";
+  </script>
+</head>
+<body>
+<!-- Flutter Web Application -->
+<script src="flutter_bootstrap.js?v=1" async></script>
+
+<!-- Add a loading indicator (optional) -->
+<div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  Loading...
+</div>
+<script>
+  // Hide the loading indicator once the Flutter app is loaded
+  window.addEventListener('load', function () {
+    document.getElementById('loading').style.display = 'none';
+  });
+</script>
+</body>
+</html>
